@@ -488,12 +488,21 @@
             });
         });
         
+        function formatMarkdown(text) {
+            return text
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // **bold**
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')              // *italic*
+                .replace(/\_\_(.+?)\_\_/g, '<strong>$1</strong>')  // __bold__
+                .replace(/\_(.+?)\_/g, '<em>$1</em>')              // _italic_
+                .replace(/\n/g, '<br>');                           // newlines
+        }
+        
         function addMessage(author, text, type) {
             const div = document.createElement('div');
             div.className = `message ${type}`;
             div.innerHTML = `
                 <div class="message-author">${author}</div>
-                <div class="message-content">${text}</div>
+                <div class="message-content">${formatMarkdown(text)}</div>
             `;
             messages.appendChild(div);
             messages.scrollTop = messages.scrollHeight;
