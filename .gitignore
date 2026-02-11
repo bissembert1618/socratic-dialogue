@@ -1,0 +1,15 @@
+# Environment
+.env
+run.sh
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
