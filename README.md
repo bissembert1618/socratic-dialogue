@@ -2,6 +2,28 @@
 
 A philosophy game that uses AI to engage in Socratic dialogue — the ancient method of inquiry through questioning.
 
+## Quick Start
+
+```bash
+# 1. Clone
+git clone https://github.com/bissembert1618/socratic-dialogue
+cd socratic-dialogue
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Set your Anthropic API key (get one at console.anthropic.com)
+export ANTHROPIC_API_KEY="sk-ant-your-key-here"
+
+# 4. Run (choose one)
+python3 cli/main.py      # Terminal version
+python3 web/app.py       # Web version → open http://localhost:5050
+```
+
+> **Note:** You need an [Anthropic API key](https://console.anthropic.com/) to run this. The game uses Claude as the AI.
+
+---
+
 ## The Concept
 
 You take a position on a philosophical topic. Socrates (the AI) doesn't lecture — he asks questions. Probing questions. Questions that expose assumptions, find contradictions, and lead you to examine what you really believe.
@@ -23,39 +45,16 @@ The goal isn't to "win." It's to discover what you don't know.
 - **Piety** — What is piety?
 - Or bring your own question
 
-## Setup
+## CLI Commands
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Set your API key
-export ANTHROPIC_API_KEY="your-key-here"
-```
-
-## CLI Version
-
-```bash
-python cli/main.py
-```
-
-Commands:
 - `/topic` — Change topic
 - `/quit` — End dialogue
 - `/help` — Show help
 
-## Web Version
-
-```bash
-python web/app.py
-```
-
-Then open http://localhost:5000
-
 ## Project Structure
 
 ```
-socratic-game/
+socratic-dialogue/
 ├── core/
 │   └── socrates.py      # The dialogue engine
 ├── cli/
@@ -83,4 +82,6 @@ Aporia isn't failure — it's the beginning of wisdom.
 
 ---
 
-*The unexamined life is not worth living.*
+Crafted with love in Tel Aviv, 2026. AI-first, philosophically grounded.
+
+[MIT License](LICENSE) · Beeri Issembert
