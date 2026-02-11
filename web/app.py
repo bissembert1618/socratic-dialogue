@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Socratic Dialogue Web Demo
-Local Flask server for the examined game.
+Socratic Dialogue Web Demo v2
+Local Flask server — now with philosophical modes and security thinking.
 """
 
 import sys
@@ -10,13 +10,12 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from flask import Flask, render_template, request, jsonify, session
-from core.socrates import SocraticDialogue, list_topics
+from core.socrates import SocraticDialogue, list_topics, list_security_topics, list_modes
 import secrets
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 
-# Store dialogues per session
 dialogues = {}
 
 
@@ -34,12 +33,19 @@ def get_dialogue():
 
 @app.route('/')
 def index():
-    return render_template('index.html', topics=list_topics())
+    return render_template('index.html', 
+                         topics=list_topics(), 
+                         security_topics=list_security_topics(),
+                         modes=list_modes())
 
 
 @app.route('/api/topics')
 def api_topics():
-    return jsonify(list_topics())
+    return jsonify({
+        "topics": list_topics(),
+        "security_topics": list_security_topics(),
+        "modes": list_modes()
+    })
 
 
 @app.route('/api/start', methods=['POST'])
@@ -47,13 +53,20 @@ def api_start():
     data = request.json
     topic_key = data.get('topic', 'justice')
     custom = data.get('custom')
+    mode = data.get('mode', 'socratic')
+    security = data.get('security', False)
     
     dialogue = get_dialogue()
-    dialogue.set_topic(topic_key, custom)
+    dialogue.set_mode(mode)
+    dialogue.set_topic(topic_key, custom, security=security)
     opening = dialogue.get_opening()
+    
+    mode_data = list_modes().get(mode, list_modes()["socratic"])
     
     return jsonify({
         'topic': dialogue.topic,
+        'mode': mode_data['name'],
+        'security': security,
         'message': opening
     })
 
@@ -87,6 +100,6 @@ if __name__ == '__main__':
         print("⚠️  ANTHROPIC_API_KEY not set.")
         sys.exit(1)
     
-    print("\n🏛️  Socratic Dialogue Web Demo")
+    print("\n🏛️  Socratic Dialogue Web Demo v2")
     print("   Open http://localhost:5050 in your browser\n")
     app.run(debug=True, port=5050)

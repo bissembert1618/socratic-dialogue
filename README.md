@@ -1,6 +1,6 @@
-# Socratic Dialogue
+# Socratic Dialogue v2
 
-A philosophy game that uses AI to engage in Socratic dialogue — the ancient method of inquiry through questioning.
+A philosophy game that uses AI to engage in philosophical dialogue — now with multiple philosophical modes and security thinking.
 
 ## Quick Start
 
@@ -24,13 +24,35 @@ python3 web/app.py       # Web version → open http://localhost:5050
 
 ---
 
-## The Concept
+## What's New in v2
 
-You take a position on a philosophical topic. Socrates (the AI) doesn't lecture — he asks questions. Probing questions. Questions that expose assumptions, find contradictions, and lead you to examine what you really believe.
+### Philosophical Modes
 
-The goal isn't to "win." It's to discover what you don't know.
+Choose your guide:
 
-## Topics
+| Mode | Style |
+|------|-------|
+| **Socratic** | Classical elenchus — expose assumptions through questioning |
+| **Stoic** | Examine what is within your control — Epictetus style |
+| **Aristotelian** | Seek the mean, examine virtue as habit and practice |
+| **Nietzschean** | Challenge values, question the will to power behind beliefs |
+
+### Socratic Security
+
+Apply philosophical inquiry to cybersecurity and information governance:
+
+- **Threat Model** — What threats do you actually face? How do you know?
+- **Trust** — What do you trust? Why? Should you?
+- **Assumptions** — What assumptions underlie your security posture?
+- **Risk** — What is risk? How do we reason about uncertainty?
+- **Privacy** — What is privacy? What are we protecting?
+- **Access** — Who should have access? On what basis?
+- **Failure** — How will your system fail? What then?
+- **Adversary** — Who is your adversary? What do they want?
+
+---
+
+## Philosophy Topics
 
 - **Justice** — What is justice?
 - **Knowledge** — What is knowledge? How do we know what we know?
@@ -43,11 +65,11 @@ The goal isn't to "win." It's to discover what you don't know.
 - **Happiness** — What is the good life?
 - **Courage** — What is courage?
 - **Piety** — What is piety?
-- Or bring your own question
 
 ## CLI Commands
 
-- `/topic` — Change topic
+- `/topic` — Change topic and mode
+- `/mode` — Show current mode
 - `/quit` — End dialogue
 - `/help` — Show help
 
@@ -56,7 +78,7 @@ The goal isn't to "win." It's to discover what you don't know.
 ```
 socratic-dialogue/
 ├── core/
-│   └── socrates.py      # The dialogue engine
+│   └── socrates.py      # The dialogue engine (modes + security)
 ├── cli/
 │   └── main.py          # Terminal interface
 ├── web/
@@ -67,7 +89,7 @@ socratic-dialogue/
 └── README.md
 ```
 
-## Philosophy
+## The Method
 
 > "I know that I know nothing." — Socrates
 
