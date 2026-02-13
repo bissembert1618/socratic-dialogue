@@ -1,6 +1,8 @@
-# Socratic Dialogue v2
+# Socratic Dialogue v3 🏛️
 
-A philosophy game that uses AI to engage in philosophical dialogue — now with multiple philosophical modes and security thinking.
+A philosophy game that uses AI to engage in deep philosophical dialogue — now with **argument analysis**, **adaptive difficulty**, **AI vs AI debates**, and **Socratic Security** threat interrogation.
+
+> **🚀 NEW IN V3:** Real-time logical analysis, adaptive AI difficulty, debate mode, and security threat interrogation. [See what's new →](README_V3.md)
 
 ## Quick Start
 
@@ -16,11 +18,49 @@ pip install -r requirements.txt
 export ANTHROPIC_API_KEY="sk-ant-your-key-here"
 
 # 4. Run (choose one)
-python3 cli/main.py      # Terminal version
-python3 web/app.py       # Web version → open http://localhost:5050
+python3 cli/main.py            # Terminal version
+python3 web/app.py             # Classic web version
+python3 web/app_enhanced.py    # NEW: v3 with all features → http://localhost:5050
+python3 examples/showcase_v3.py # NEW: Feature demos
 ```
 
 > **Note:** You need an [Anthropic API key](https://console.anthropic.com/) to run this. The game uses Claude as the AI.
+
+---
+
+## 🚀 What's New in v3
+
+### 1. Argument Analysis & Visualization
+- Real-time logical analysis of conversations
+- Automatic claim extraction and contradiction detection
+- Fallacy identification (ad hominem, straw man, etc.)
+- Consistency scoring (0-100)
+- Aporia detection (when genuine puzzlement is reached)
+
+### 2. Adaptive Difficulty System
+- AI automatically adjusts questioning depth based on your sophistication
+- Three levels: Beginner → Intermediate → Advanced
+- Tracks: vocabulary, argumentation, self-awareness, depth
+- Seamless transitions during conversation
+
+### 3. AI vs AI Debate Mode
+- Watch two philosophers debate each other
+- Mix any modes (Socratic vs Nietzschean, etc.)
+- AI judge scores debates on logic, tradition, engagement
+- Learn by observing different argumentative strategies
+
+### 4. Enhanced Socratic Security
+- **Threat Model Interrogator**: Upload threat models, get Socratic questioning
+- **Control Challenger**: Distinguish security from security theater
+- **Assumption Exposure**: Challenge unexamined beliefs
+- **Red Team Questions**: Generate adversarial perspectives
+
+### 5. Export & Sharing
+- Export dialogues as formatted text
+- Shareable summaries
+- Track your philosophical journey
+
+[📚 Full v3 Documentation](README_V3.md) | [⚙️ Feature Details](FEATURES_V3.md)
 
 ---
 
